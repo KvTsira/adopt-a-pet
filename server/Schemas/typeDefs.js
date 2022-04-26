@@ -9,6 +9,7 @@ const typeDefs = gql`
   image: String
   link: String
   title: String
+}
 
   type User {
         _id: ID
@@ -18,7 +19,7 @@ const typeDefs = gql`
         bookCount: Int
     }
     
-    }
+    
     type Auth {
         token: ID!
         user: User
