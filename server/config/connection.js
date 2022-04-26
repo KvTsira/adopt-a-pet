@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/adopt-a-pet', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.2/adopt-a-pet', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
