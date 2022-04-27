@@ -39,7 +39,8 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path='/' component={SearchPets} />
+            {/* <Route exact path='/' component={Homepage} /> */}
+            <Route exact path='/pets' component={SearchPets} />
             <Route exact path='/saved' component={SavedPets} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
