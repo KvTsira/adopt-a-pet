@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App'
 // import { Button } from './Button';
-import '/Users/kareemmagdy/Desktop/adopt-a-pet/client/src/components/HeroSection.js';
+import '/Users/kareemmagdy/Desktop/adopt-a-pet/client/src/components/HeroSection.css';
 
 
 function Home() {

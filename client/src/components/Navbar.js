@@ -25,7 +25,7 @@ const AppNavbar = () => {
                 </svg>
               </Nav.Link>
               <Nav.Link as={Link} to='/pets'>
-                <h1>Search For Pets</h1>
+                <h1>Pets</h1>
               </Nav.Link>
 
               {/* if user is logged in show saved pets and logout */}
