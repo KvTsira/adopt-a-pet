@@ -16,8 +16,8 @@ const AppNavbar = () => {
         <Container fluid>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-          <img src="/Users/kareemmagdy/Desktop/adopt-a-pet/client/src/assets/car_dog.svg" width="10" height="10"/>
-            Woof Woof
+          <img src=".././assets/car_dog.svg" width="10" height="10"/>
+            <h1>Woof Woof</h1>
             <Nav className='ml-auto'>
               <Nav.Link as={Link} to='/'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
