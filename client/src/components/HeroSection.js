@@ -2,12 +2,13 @@ import React from 'react';
 import '../App'
 // import { Button } from './Button';
 import '/Users/kareemmagdy/Desktop/adopt-a-pet/client/src/components/HeroSection.css';
+import Video from '/Users/kareemmagdy/Desktop/adopt-a-pet/client/src/assets/pets.mp4'
 
 
 function Home() {
     return (
         <div className='hero-container'>
-            <video src="/Users/kareemmagdy/Desktop/adopt-a-pet/client/src/assets/pets.mp4" autoPlay loop muted />
+            <video src={Video} autoPlay loop muted />
             <h1>Your pet Awaits</h1>
             <p>What are you waiting for?</p>
             <div className="hero-btns">
