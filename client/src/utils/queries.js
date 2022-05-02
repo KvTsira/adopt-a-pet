@@ -18,3 +18,15 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const GET_PET = gql`
+query getPet {
+  getPet {
+    petId
+    description
+    owners
+    image
+    link
+    title
+  }
+}`;

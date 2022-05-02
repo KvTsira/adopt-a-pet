@@ -28,6 +28,7 @@ const typeDefs = gql`
         me: User
         user(username: String!): User
         pets(username: String): [Pet]
+        getPet: [Pet]
     }
     input PetInput {
         petId: String
