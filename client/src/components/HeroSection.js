@@ -12,8 +12,8 @@ function Home() {
             
             <div class="overlay-text">
 
-            <h2>Your pet Awaits</h2>
-            <p>What are you waiting for?</p>
+            <h2 className="pets-text1">Your pet Awaits</h2>
+            <p className="pets-text2">What are you waiting for?</p>
             </div>
 
         </div>

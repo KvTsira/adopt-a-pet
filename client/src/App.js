@@ -4,7 +4,8 @@ import SearchPets from './pages/SearchPets';
 import SavedPets from './pages/SavedPets';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+
 
 import {
   ApolloClient,

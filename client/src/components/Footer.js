@@ -8,7 +8,7 @@ function Footer() {
 <h2>❤️ Made with love by Woof Woof.</h2>
 <div>
   <a href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
-  &copy; 2019 Run Buddy, Inc.
+  &copy; 2022 Woof Woof, Inc.
 </div>
 </footer>
 
