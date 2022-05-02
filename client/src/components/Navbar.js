@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-
 import Auth from '../utils/auth';
+import Volunteerform from "./VolunteerForm";
+import Adoptform from "./AdoptForm"
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+  const [showvolunteerModal, setVolunteerModal] = useState(false);
+  const [showAdoptModal, setAdoptModal] = useState(false);
+  
 
   return (
     <>
@@ -26,8 +30,14 @@ const AppNavbar = () => {
               {/* if user is logged in show saved pets and logout */}
               {Auth.loggedIn() ? (
                 <>
+                 <Navbar.Brand onClick={() =>setVolunteerModal(!showModal)}>
+                  Volunteer!
+                 </Navbar.Brand>
+                 <Navbar.Brand onClick={() => setAdoptModal(true)}>
+                  Contact To Adopt!
+                 </Navbar.Brand>
                   <Nav.Link as={Link} to='/saved'>
-                    See Your Pets
+                    See Your Pet
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
@@ -61,7 +71,7 @@ const AppNavbar = () => {
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey='login'>
-                <LoginForm handleModalClose={() => setShowModal(false)} />
+                <LoginForm handleModalClose={() => setShowModal(!showModal)} />
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
@@ -70,8 +80,33 @@ const AppNavbar = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
+      <Modal
+        size='lg'
+        show={showvolunteerModal}
+        onHide={() => setVolunteerModal(false)}
+        aria-labelledby='volunteer-modal'>
+          <Modal.Header closeButton>
+          <Modal.Title id='volunteer-modal'>Volunteer Form</Modal.Title>
+          <Modal.Body>
+          <Volunteerform handleModalClose={() => setVolunteerModal(!showvolunteerModal)} />
+          </Modal.Body>
+          </Modal.Header>
+        </Modal>
+        <Modal
+        size='lg'
+        show={showAdoptModal}
+        onHide={() => setAdoptModal(false)}
+        aria-labelledby='adopt-modal'>
+          <Modal.Header closeButton>
+          <Modal.Title id='adopt-modal'>Adoption Form</Modal.Title>
+          <Modal.Body>
+          <Adoptform handleModalClose={() => setAdoptModal(!showAdoptModal)} />
+          </Modal.Body>
+          </Modal.Header>
+        </Modal>
     </>
   );
 };
 
 export default AppNavbar;
+
