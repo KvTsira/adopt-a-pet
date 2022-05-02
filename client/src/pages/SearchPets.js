@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_PET } from '../utils/mutations';
+import { GET_PET } from '../utils/queries';
 import Auth from '../utils/auth';
 import { searchPets } from '../utils/API';
 import { savePetIds, getSavedPetIds } from '../utils/localStorage';
@@ -18,6 +19,8 @@ const SearchPets = () => {
 
   const [savePet, { error }] = useMutation(SAVE_PET);
 
+  const { loading, data } = useQuery(GET_PET);
+  const petData = data?.getPet||[];
 
 
   // set up useEffect hook to save `savedIds` list to localStorage on component unmount
@@ -87,12 +90,12 @@ const SearchPets = () => {
     <>
       <Container>
         <h2>
-          {searchedPets.length
-            ? `Viewing ${searchedPets.length} results:`
+          {petData.length
+            ? `Viewing ${petData.length} results:`
             : 'Search for a pet to begin'}
         </h2>
         <CardColumns>
-          {searchedPets.map((pet) => {
+          {petData.map((pet) => {
             return (
               <Card key={pet.petId} border='dark'>
                 {pet.image ? (
