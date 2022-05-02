@@ -17,6 +17,9 @@ const resolvers = {
            return User.findOne({ username })
             .select('-__v -password')
        },
+       getPet: async () => {
+        return Pet.find({}); 
+        }
     },
     Mutation: {
         addUser: async (parent, args) => {
