@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SearchPets from './pages/SearchPets';
 import SavedPets from './pages/SavedPets';
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Footer from './components/Footer';
+
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -39,10 +43,12 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path='/' component={SearchPets} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/pets' component={SearchPets} />
             <Route exact path='/saved' component={SavedPets} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
+          <Footer />
         </>
       </Router>
     </ApolloProvider>

@@ -4,7 +4,8 @@ import Auth from '../utils/auth';
 import { removePetId } from '../utils/localStorage';
 import { GET_ME } from '../utils/queries';
 import { REMOVE_PET } from '../utils/mutations';
-import { useMutation, useQuery } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client';
+import PetForm from '../components/PetForm';
 
 const SavedPets = () => {
 
@@ -39,11 +40,6 @@ const SavedPets = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1>Viewing saved pets!</h1>
-        </Container>
-      </Jumbotron>
       <Container>
         <h2>
           {userData.savedPets.length
@@ -69,7 +65,9 @@ const SavedPets = () => {
           })}
         </CardColumns>
       </Container>
+      <PetForm/>
     </>
+
   );
 };
 

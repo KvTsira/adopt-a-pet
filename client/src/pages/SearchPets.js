@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
-import { useMutation } from '@apollo/client';
+import { Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+import { useMutation, useQuery } from '@apollo/client';
 import { SAVE_PET } from '../utils/mutations';
+import { GET_PET } from '../utils/queries';
 import Auth from '../utils/auth';
 import { searchPets } from '../utils/API';
 import { savePetIds, getSavedPetIds } from '../utils/localStorage';
@@ -18,12 +19,14 @@ const SearchPets = () => {
 
   const [savePet, { error }] = useMutation(SAVE_PET);
 
+  const { loading, data } = useQuery(GET_PET);
+  const petData = data?.getPet||[];
 
 
   // set up useEffect hook to save `savedIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => savePetIds(savedPetIds);
+    return () => savePetIds(petData);
   });
 
   // create method to search for  and set state on form submit
@@ -85,39 +88,14 @@ const SearchPets = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1>Search for Pets!</h1>
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  name='searchInput'
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type='text'
-                  size='lg'
-                  placeholder='Search for a pet'
-                />
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg'>
-                  Submit Search
-                </Button>
-              </Col>
-            </Form.Row>
-          </Form>
-        </Container>
-      </Jumbotron>
-
       <Container>
         <h2>
-          {searchedPets.length
-            ? `Viewing ${searchedPets.length} results:`
+          {petData.length
+            ? `Viewing ${petData.length} results:`
             : 'Search for a pet to begin'}
         </h2>
         <CardColumns>
-          {searchedPets.map((pet) => {
+          {petData.map((pet) => {
             return (
               <Card key={pet.petId} border='dark'>
                 {pet.image ? (
@@ -131,7 +109,7 @@ const SearchPets = () => {
                     <Button
                       disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
                       className='btn-block btn-info'
-                      onClick={() => handleSavePet(pet.petId)}>
+                      onClick={() => handleSavePet(petData)}>
                       {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
                         ? 'This pet has already been saved!'
                         : 'Save this Pet!'}
