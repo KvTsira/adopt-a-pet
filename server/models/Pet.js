@@ -5,6 +5,7 @@ const petSchema = new Schema({
   name: [
     {
       type: String,
+      required: true,
     },
   ],
   description: {
@@ -29,6 +30,10 @@ const petSchema = new Schema({
     type: String,
     required: true,
   },
+  owners:[ {
+    type: String,
+    required: true,
+  }]
 });
 
 const Pet = model('Pet', petSchema);

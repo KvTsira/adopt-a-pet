@@ -7,7 +7,7 @@ db.once('open', async () => {
   try {
     await Pet.deleteMany({});
     // await User.deleteMany({});
-    await Pet.bulkCreate(petseeds);
+    await Pet.create(petseeds);
     // await User.create(userSeeds);
 
     // for (let i = 0; i < thoughtSeeds.length; i++) {

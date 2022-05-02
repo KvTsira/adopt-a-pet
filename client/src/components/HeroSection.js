@@ -12,7 +12,7 @@ function Home() {
             
             <div class="overlay-text">
 
-            <h2>Your pet Awaits</h2>
+            <h2>Your new pet awaits!</h2>
             <p>What are you waiting for?</p>
             </div>
 

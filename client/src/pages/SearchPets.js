@@ -26,7 +26,7 @@ const SearchPets = () => {
   // set up useEffect hook to save `savedIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
-    return () => savePetIds(savedPetIds);
+    return () => savePetIds(petData);
   });
 
   // create method to search for  and set state on form submit
@@ -109,7 +109,7 @@ const SearchPets = () => {
                     <Button
                       disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
                       className='btn-block btn-info'
-                      onClick={() => handleSavePet(pet.petId)}>
+                      onClick={() => handleSavePet(petData)}>
                       {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
                         ? 'This pet has already been saved!'
                         : 'Save this Pet!'}
