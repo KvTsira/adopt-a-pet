@@ -36,10 +36,10 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                  <Navbar.Brand onClick={() =>setVolunteerModal(!showModal)}>
-                  Volunteer!
+                 <h1>Volunteer!</h1>
                  </Navbar.Brand>
                  <Navbar.Brand onClick={() => setAdoptModal(true)}>
-                  Contact To Adopt!
+                 <h1>Contact To Adopt!</h1>
                  </Navbar.Brand>
                   <Nav.Link as={Link} to='/saved'>
                   <h1>Profile</h1>
