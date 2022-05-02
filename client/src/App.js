@@ -4,6 +4,7 @@ import SearchPets from './pages/SearchPets';
 import SavedPets from './pages/SavedPets';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Footer from './components/Footer'
 
 import {
   ApolloClient,
@@ -46,6 +47,7 @@ function App() {
             <Route exact path='/saved' component={SavedPets} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
+          <Footer />
         </>
       </Router>
     </ApolloProvider>
