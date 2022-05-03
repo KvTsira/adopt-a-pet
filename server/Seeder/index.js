@@ -5,7 +5,9 @@ const petseeds = require('./petseeds.json');
 
 db.once('open', async () => {
   try {
+    console.log('syncing', '='.repeat(50))
     await Pet.deleteMany({});
+    console.log('deleted', '='.repeat(50))
     // await User.deleteMany({});
     await Pet.create(petseeds);
     // await User.create(userSeeds);

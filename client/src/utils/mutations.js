@@ -25,20 +25,18 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_PET = gql`
-    mutation savePet($savedPet: PetInput!) {
-        savePet(savedPet: $savedPet) {
-            _id
-            username
-            email
-            savedPets {
-                _id
-                owner
-                description
-                title
-                image
-            }
-        }
+mutation savePet($savedPet: ID!) {
+    savePet(savedPet: $savedPet) {
+      _id
+      savedPets {
+        _id
+        owner
+        description
+        image
+        title
+      }
     }
+  }
 `;
 
 export const REMOVE_PET = gql`

@@ -29,16 +29,12 @@ const typeDefs = gql`
         pets(username: String): [Pet]
         getPet: [Pet]
     }
-    input PetInput {
-        _id: String
-        
-    }
-
+    
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        savePet(savedPet: PetInput!): User
+        savePet(savedPet: ID!): User
         removePet(petId: ID!): User
     }
 `

@@ -53,8 +53,8 @@ const resolvers = {
                     { $push: { savedPets: savedPet } },
                     { new: true, runValidators: true }
                 );
-
-                return updatedUser
+                const populatedUser = await User.findOne({ _id: context.user._id }).populate('savedPets')
+                return populatedUser
             }
             throw new AuthenticationError('You need to be logged in!')
         },
