@@ -12,9 +12,9 @@ const petSchema = new Schema({
     type: String,
   },
   // saved pets id from pets api
-  _id: {
-    type: Schema.Types.ObjectId,
-  },
+  // _id: {
+  //   type: Schema.Types.ObjectId,
+  // },
   type: {
     type: String,
   },

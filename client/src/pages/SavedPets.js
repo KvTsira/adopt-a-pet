@@ -47,15 +47,16 @@ const SavedPets = () => {
             : 'You have no saved pets!'}
         </h2>
         <CardColumns>
-          {userData.savedPets.map((pet) => {
+          {userData.savedPets.map((pet, index) => {
+            console.log("savedPets.js pet card\n",)
             return (
-              <Card key={pet.petId} border='dark'>
+              <Card key={index} border='dark'>
                 {pet.image ? <Card.Img src={pet.image} alt={`The cover for ${pet.title}`} variant='top' /> : null}
                 <Card.Body>
                   <Card.Title>{pet.title}</Card.Title>
                   <p className='small'>Owners: {pet.owners}</p>
                   <Card.Text>{pet.description}</Card.Text>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeletePet(pet.petId)}>
+                  <Button className='btn-block btn-danger' onClick={() => handleDeletePet(pet._id)}>
                     Delete this Pet!
                   </Button>
                   {error && <div>Something went wrong!</div>}
