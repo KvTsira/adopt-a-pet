@@ -7,8 +7,8 @@ const resolvers = {
        me: async (parent, args, context) => {
            if(context.user) {
                const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-
+                .select('-__v -password').populate('savedPets')
+                
                 return userData;
            }
            throw new AuthenticationError('You are not logged in!')
@@ -46,7 +46,7 @@ const resolvers = {
         },
 
         savePet: async (parent,  { savedPet }, context) => {
-            console.log(savedPet, 'this is a saved PET')
+           
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -59,19 +59,19 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        // removePet: async (parent, { petId }, context) => {
-        //     if (context.user) {
-        //         const updatedUser = await User.findOneAndUpdate(
-        //             { _id: context.user._id },
-        //             { $pull: { savedPets: { petId } } },
-        //             { new: true } 
-        //         );
+        removePet: async (parent, { savedPet }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { savedPets: { savedPet } } },
+                    { new: true } 
+                );
 
-        //         return updatedUser;
-        //     }
+                return updatedUser;
+            }
 
-        //     throw new AuthenticationError('You need to be logged in! ')
-        // }
+            throw new AuthenticationError('You need to be logged in! ')
+        }
     }
 }
 

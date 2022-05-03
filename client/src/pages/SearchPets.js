@@ -78,7 +78,7 @@ const SearchPets = () => {
     try {
       // console.log(petToSave);
       const { data } = await savePet({
-        variables: { savedPet: { id } },
+        variables: { savedPet: id },
       });
       console.log (data, 'this is data')
 
