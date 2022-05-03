@@ -4,7 +4,12 @@ function Footer() {
     return (
 
 
-<footer>
+<footer         style={{
+          position: "fixed",
+          left: 0,
+          bottom: 0,
+          right: 0        
+          }}>
 <h2>❤️ Made with love by Woof Woof.</h2>
 <div>
   <a href="./privacy-policy.html">Read Our Privacy Policy</a><br/>
