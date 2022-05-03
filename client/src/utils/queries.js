@@ -8,12 +8,11 @@ export const GET_ME = gql`
       email
       petCount
       savedPets {
-        petId
-        owners
+        _id
+        owner
         description
         title
         image
-        link
       }
     }
   }
@@ -22,11 +21,10 @@ export const GET_ME = gql`
 export const GET_PET = gql`
 query getPet {
   getPet {
-    petId
+    _id
     description
-    owners
+    owner
     image
-    link
     title
   }
 }`;

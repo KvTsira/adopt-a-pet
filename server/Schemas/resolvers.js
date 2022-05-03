@@ -45,7 +45,8 @@ const resolvers = {
             return { token, user };
         },
 
-        savePet: async (parent, { savedPet }, context) => {
+        savePet: async (parent,  { savedPet }, context) => {
+            console.log(savedPet, 'this is a saved PET')
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -58,19 +59,19 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!')
         },
 
-        removePet: async (parent, { petId }, context) => {
-            if (context.user) {
-                const updatedUser = await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { savedPets: { petId } } },
-                    { new: true } 
-                );
+        // removePet: async (parent, { petId }, context) => {
+        //     if (context.user) {
+        //         const updatedUser = await User.findOneAndUpdate(
+        //             { _id: context.user._id },
+        //             { $pull: { savedPets: { petId } } },
+        //             { new: true } 
+        //         );
 
-                return updatedUser;
-            }
+        //         return updatedUser;
+        //     }
 
-            throw new AuthenticationError('You need to be logged in! ')
-        }
+        //     throw new AuthenticationError('You need to be logged in! ')
+        // }
     }
 }
 

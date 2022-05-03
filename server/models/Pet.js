@@ -10,12 +10,10 @@ const petSchema = new Schema({
   ],
   description: {
     type: String,
-   
   },
   // saved pets id from pets api
-  petId: {
-    type: String,
-    
+  _id: {
+    type: Schema.Types.ObjectId,
   },
   type: {
     type: String,
@@ -23,17 +21,14 @@ const petSchema = new Schema({
   image: {
     type: String,
   },
-  link: {
-    type: String,
-  },
   title: {
     type: String,
     required: true,
   },
-  owners:[ {
+  owner:{
     type: String,
     required: true,
-  }]
+  }
 });
 
 const Pet = model('Pet', petSchema);

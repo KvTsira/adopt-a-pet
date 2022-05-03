@@ -10,7 +10,7 @@ import { savePetIds, getSavedPetIds } from '../utils/localStorage';
 
 const SearchPets = () => {
   // create state for holding returned google api data
-  const [searchedPets, setSearchedPets] = useState([]);
+  // const [searchedPets, setSearchedPets] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
@@ -30,42 +30,44 @@ const SearchPets = () => {
   });
 
   // create method to search for  and set state on form submit
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
 
-    if (!searchInput) {
-      return false;
-    }
+  //   if (!searchInput) {
+  //     return false;
+  //   }
 
-    try {
-      const response = await searchPets(searchInput);
+  //   try {
+  //     const response = await searchPets(searchInput);
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+  //     if (!response.ok) {
+  //       throw new Error('something went wrong!');
+  //     }
 
-      const { items } = await response.json();
+  //     const { items } = await response.json();
 
-      const savedPet = items.map((pet) => ({
-        petId: pet.id,
-        owners: pet.volumeInfo.owners || ['No owner to display'],
-        title: pet.volumeInfo.title,
-        description: pet.volumeInfo.description,
-        image: pet.volumeInfo.imageLinks?.thumbnail || '',
-      }));
+  //     const savedPet = items.map((pet) => ({
+  //       petId: pet.id,
+  //       owners: pet.volumeInfo.owners || ['No owner to display'],
+  //       title: pet.volumeInfo.title,
+  //       description: pet.volumeInfo.description,
+  //       image: pet.volumeInfo.imageLinks?.thumbnail || '',
+  //     }));
 
-      setSearchedPets(savedPet);
-      setSearchInput('');
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     setSearchedPets(savedPet);
+  //     setSearchInput('');
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   // create function to handle saving a pet to our database
-  const handleSavePet = async (petId) => {
+  const handleSavePet = async (e) => {
+    console.log('----- YOU ARE HERE -----')
+    console.log(e,'printing pet ID')
     // find the pet in `searched` state by the matching id
-    const petToSave = searchedPets.find((pet) => pet.petId === petId);
-
+    const petToSave = petData.find((pet) => pet._id === e);
+    console.log(petToSave, 'PET to SAVE')
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -74,13 +76,14 @@ const SearchPets = () => {
     }
 
     try {
-      console.log(petToSave);
+      // console.log(petToSave);
       const { data } = await savePet({
-        variables: { savedPet: { ...petToSave } },
+        variables: { savedPet: { e } },
       });
+      console.log (data, 'this is data')
 
       // if pet successfully saves to user's account, save pet id to state
-      setSavedPetIds([...savedPetIds, petToSave.petId]);
+      setSavedPetIds([...savedPetIds, petToSave._id]);
     } catch (err) {
       console.error(err);
     }
@@ -96,6 +99,9 @@ const SearchPets = () => {
         </h2>
         <CardColumns>
           {petData.map((pet) => {
+            console.log(pet, 'this is a pet')
+            const id = pet._id
+            console.log(id, 'this is pet ID')
             return (
               <Card key={pet.petId} border='dark'>
                 {pet.image ? (
@@ -107,10 +113,10 @@ const SearchPets = () => {
                   <Card.Text>{pet.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
-                      disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
+                      disabled={savedPetIds?.some((savedPetId) => savedPetId === id)}
                       className='btn-block btn-info'
-                      onClick={() => handleSavePet(petData)}>
-                      {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
+                      onClick={() => handleSavePet(id)}>
+                      {savedPetIds?.some((savedPetId) => savedPetId === id)
                         ? 'This pet has already been saved!'
                         : 'Save this Pet!'}
                     </Button>

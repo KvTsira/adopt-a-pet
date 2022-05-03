@@ -31,12 +31,11 @@ export const SAVE_PET = gql`
             username
             email
             savedPets {
-                petId
-                owners
+                _id
+                owner
                 description
                 title
                 image
-                link
             }
         }
     }
@@ -49,12 +48,11 @@ export const REMOVE_PET = gql`
             username
             email
             savedPets{
-                petId
-                owners
+                _id
+                owner
                 description
                 title
                 image
-                link
             }
         }
     }

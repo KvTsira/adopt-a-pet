@@ -3,11 +3,10 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     
   type Pet {
-  petId: String
-  owners: [String]
+  _id: String
+  owner: String
   description: String
   image: String
-  link: String
   title: String
 }
 
@@ -31,12 +30,8 @@ const typeDefs = gql`
         getPet: [Pet]
     }
     input PetInput {
-        petId: String
-        owners: [String]
-        description: String
-        title: String
-        image: String
-        link: String
+        _id: String
+        
     }
 
 
