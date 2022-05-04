@@ -23,7 +23,6 @@ const userSchema = new Schema(
     savedPets: [{
       type: Schema.Types.ObjectId,
       ref: 'Pet',
-      unique: true,
     }],
   },
   // set this to use virtual below
