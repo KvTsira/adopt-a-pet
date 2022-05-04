@@ -55,7 +55,18 @@
   header nav {
     margin: 7px 0;
   }
-  
+    .navbar-brand h1{
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 0.2rem;
+    color: rgba(0,0,0,.5);
+  }
+  .navbar-brand:hover{
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
   header nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +97,7 @@
   /* FOOTER STYLES START */
   footer {
     background:  #FED8B1;
-    padding: 40px 35px;
+    padding: 12px 35px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
