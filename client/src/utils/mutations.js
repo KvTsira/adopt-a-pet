@@ -40,8 +40,8 @@ mutation savePet($savedPet: ID!) {
 `;
 
 export const REMOVE_PET = gql`
-    mutation removePet($petId: ID!) {
-        removePet(petId: $petId) {
+    mutation removePet($_id: ID!) {
+        removePet(_id: $_id) {
             _id
             username
             email
