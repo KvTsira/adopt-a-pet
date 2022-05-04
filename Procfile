@@ -1,2 +1,2 @@
-web: node server/server.js
-web: node server/config/connection.js
+web: node src/server.js
+web: node src/connection.js
