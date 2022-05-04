@@ -26,7 +26,7 @@ return (
 
 }}
   >
-    <h1 className="text-center text-white" style={{marginTop:'50px'}}>Wanna donate your pet?</h1>
+    <h1 className="text-center text-white" style={{marginTop:'50px'}}>Please donate to help save pets</h1>
     <form className="row" 
           style={{ margin: "25px 85px 75px 100px" }} 
           onSubmit={sendEmail}>
