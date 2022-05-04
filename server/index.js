@@ -15,7 +15,7 @@ app.use(cors())
 
 //payment route
 app.post("/payment", cors(), async (req, res) => {
-	let { amount, id } = re.qbody
+	let { amount, id } = req.qbody
 	try {
 		const payment = await stripe.paymentIntents.create({
 			amount,
