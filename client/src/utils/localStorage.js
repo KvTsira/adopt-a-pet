@@ -25,6 +25,6 @@ export const removePetId = (petId) => {
 
   const updatedSavedPetIds = savedPetIds?.filter((savedPetId) => savedPetId !== petId);
   localStorage.setItem('saved_pets', JSON.stringify(updatedSavedPetIds));
-
+window.location.reload()
   return true;
 };
