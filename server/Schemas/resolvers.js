@@ -50,7 +50,7 @@ const resolvers = {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $push: { savedPets: savedPet } },
+                    { $addToSet: { savedPets: savedPet } },
                     { new: true, runValidators: true }
                 );
                 const populatedUser = await User.findOne({ _id: context.user._id }).populate('savedPets')

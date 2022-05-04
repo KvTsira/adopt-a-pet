@@ -109,7 +109,7 @@ const SearchPets = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{pet.title}</Card.Title>
-                  <p className='small'>Owners: {pet.owners}</p>
+                  <p className='small'>Owners: {pet.owner}</p>
                   <Card.Text>{pet.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
