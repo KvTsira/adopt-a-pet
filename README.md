@@ -15,7 +15,13 @@ kvTsira
 <br>
 Sohrob1
 # links
+GitHub Link:
+
 https://github.com/Kareem1990/adopt-a-pet
+
+Heroku LInk:
+
+https://lit-thicket-52493.herokuapp.com/
 <br>
 https://lit-thicket-52493.herokuapp.com/
 
@@ -25,17 +31,4 @@ https://lit-thicket-52493.herokuapp.com/
 ![Screenshot](./client/public/screenshot3.PNG)
 ![Screenshot](./client/public/adoptformscreenshot.PNG)
 ![Screenshot](./client/public/volunteerformscreenshot.PNG)
-# Table of Contents
-Project Name
-<br> 
-Description
-<br> 
- Installation
-<br> 
-Usage
-<br>  
-Contributors
-<br>  
-Link
-<br>  
-Table of Contents
+
