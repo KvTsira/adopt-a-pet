@@ -22,8 +22,8 @@ https://github.com/Kareem1990/adopt-a-pet
 Heroku LInk:
 
 https://lit-thicket-52493.herokuapp.com/
-<br>
-https://lit-thicket-52493.herokuapp.com/
+
+
 
 # Screenshots
 ![Screenshot](./client/public/screenshot1.PNG)
