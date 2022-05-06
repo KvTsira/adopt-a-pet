@@ -17,7 +17,7 @@ Sohrob1
 # links
 GitHub Link:
 
-https://github.com/Kareem1990/adopt-a-pet
+https://github.com/KvTsira/adopt-a-pet
 
 Heroku LInk:
 
