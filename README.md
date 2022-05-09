@@ -23,6 +23,10 @@ Heroku LInk:
 
 https://lit-thicket-52493.herokuapp.com/
 
+Tsira's Portfolio Link:
+
+https://kvtsira.github.io/tsira-portfolio/#about
+
 
 
 # Screenshots
